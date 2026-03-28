@@ -26,13 +26,18 @@ a:hover { text-decoration: underline; }
 }
 .join-us-btn {
     display: inline-block;
-    background-color: #9be7b1;
-    color: #002b36;
+    background-color: #002b36; /* dark background for contrast */
+    color: #9be7b1; /* light green text */
     font-weight: bold;
     padding: 8px 15px;
     border-radius: 6px;
     text-align: center;
+    text-decoration: none;
     transition: transform 0.3s, box-shadow 0.3s;
+}
+body.dark-mode .join-us-btn {
+    background-color: #9be7b1; /* light green bg in dark mode */
+    color: #002b36; /* dark text */
 }
 .join-us-btn:hover {
     transform: translateY(-3px);
@@ -78,7 +83,7 @@ nav a { color: #9be7b1; font-weight: bold; }
     background: rgba(0,43,54,0.4);
 }
 
-/* ------------------ Rank Cards ------------------ */
+/* Rank Cards */
 .rank { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; position: relative; padding: 10px; cursor: pointer; }
 .rank img { width: 60px; transition: transform 0.3s; }
 .rank:hover img { transform: scale(1.2); }
@@ -105,7 +110,10 @@ body.dark-mode .card {
     color: #f4f4f4;
 }
 body.dark-mode .card { border-left-color: #9be7b1; }
-body.dark-mode .join-us-btn { background-color: #002b36; color: #9be7b1; }
+
+/* Heading fixes for dark mode */
+body.dark-mode h2 { color: #9be7b1; }
+body.dark-mode h3 { color: #f4f4f4; }
 
 html { scroll-behavior: smooth; }
 
