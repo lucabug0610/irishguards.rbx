@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irish Guards Milsim</title>
+
+<style>
+/* RESET & BODY */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* TOP GOV BAR */
+.gov-bar {
+    background: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 6px 40px;
+}
+.gov-bar a { color: #9be7b1; margin-left: 15px; }
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    background: #002b36;
+    padding: 20px 40px;
+    color: #fff;
+}
+header img {
+    height: 70px;
+    margin-right: 20px;
+}
+header .title {
+    display: flex;
+    flex-direction: column;
+}
+header .title h1 {
+    font-size: 32px;
+}
+header .title p {
+    font-style: italic;
+    color: #9be7b1;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* NAVIGATION */
+nav {
+    background: #073642;
+    padding: 12px 40px;
+}
+nav a {
+    color: #9be7b1;
+    margin-right: 25px;
+    font-weight: bold;
+}
+nav a:hover { text-decoration: underline; }
+
+/* HERO BANNER */
+.hero {
+    position: relative;
+    height: 250px;
+    background: url('banner.png') center/cover no-repeat;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+/* SECTIONS */
+.section {
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+}
+.section h2 {
+    border-bottom: 2px solid #073642;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    color: #002b36;
+}
+
+/* CARDS */
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 6px solid #002b36;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* RANKS */
+.rank {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.rank img {
+    width: 60px;
+}
+
+/* FOOTER */
+footer {
+    background: #002b36;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="gov-bar">
+    UK Ministry of Defence &nbsp;|&nbsp; <a href="#companies">Units</a> | <a href="#ranks">Ranks</a>
+</div>
+
+<header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Irish_Guards_Cap_Badge.svg">
+    <div class="title">
+        <h1>Irish Guards Milsim</h1>
+        <p>Quis Separabit</p>
+    </div>
+</header>
+
+<nav>
+    <a href="#companies">Companies</a>
+    <a href="#ranks">Ranks</a>
+</nav>
+
+<div class="hero">
+    <div class="hero-overlay"></div>
+</div>
+
+<div class="section" id="companies">
+<h2>Companies</h2>
+<div class="card">
+<h3>No. 1 Company (Rifle Company)</h3>
+<p><b>Role:</b> Frontline infantry operations</p>
+<p><b>OC:</b> [Add Name]</p>
+<p><b>2IC:</b> [Add Name]</p>
+</div>
+<div class="card">
+<h3>No. 2 Company (Rifle Company)</h3>
+<p><b>Role:</b> Frontline infantry operations</p>
+<p><b>OC:</b> [Add Name]</p>
+<p><b>2IC:</b> [Add Name]</p>
+</div>
+<div class="card">
+<h3>Support Company</h3>
+<p><b>Units:</b> Mortar Platoon, Reconnaissance Platoon</p>
+<p><b>OC:</b> [Add Name]</p>
+</div>
+</div>
+
+<div class="section" id="ranks">
+<h2>All Ranks</h2>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/British_Army_Private_insignia.svg">
+<div><h3>Guardsman</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/British_Army_Lance_Corporal_insignia.svg">
+<div><h3>Lance Corporal</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/British_Army_Corporal_insignia.svg">
+<div><h3>Lance Sergeant</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/British_Army_Sergeant_insignia.svg">
+<div><h3>Sergeant</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/British_Army_Colour_Sergeant_insignia.svg">
+<div><h3>Colour Sergeant</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/British_Army_WO2_insignia.svg">
+<div><h3>WO2</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/65/British_Army_WO1_insignia.svg">
+<div><h3>WO1</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/British_Army_Second_Lieutenant_insignia.svg">
+<div><h3>Second Lieutenant</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/British_Army_Lieutenant_insignia.svg">
+<div><h3>Lieutenant</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/British_Army_Captain_insignia.svg">
+<div><h3>Captain</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/British_Army_Major_insignia.svg">
+<div><h3>Major</h3></div></div>
+<div class="card rank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/British_Army_Lieutenant_Colonel_insignia.svg">
+<div><h3>Lieutenant Colonel</h3></div></div>
+</div>
+
+<footer>
+&copy; 2026 Irish Guards Milsim | UK Ministry of Defence Style Replica
+</footer>
+
+</body>
+</html>
