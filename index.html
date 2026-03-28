@@ -6,10 +6,10 @@
 <title>Irish Guards</title>
 
 <style>
-/* ------------------ Basic Styles ------------------ */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; transition: background 0.3s, color 0.3s; }
 body.dark-mode { background-color: #002b36; color: #f4f4f4; }
+
 a { text-decoration: none; color: inherit; }
 a:hover { text-decoration: underline; }
 
@@ -25,6 +25,22 @@ a:hover { text-decoration: underline; }
     border-radius: 4px;
     font-weight: bold;
     color: #002b36;
+}
+
+/* Join Us Button */
+.join-us-btn {
+    display: inline-block;
+    background-color: #9be7b1;
+    color: #002b36;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.join-us-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 header { display: flex; align-items: center; background: #002b36; padding: 20px 40px; color: #fff; }
@@ -44,24 +60,6 @@ nav a { color: #9be7b1; font-weight: bold; }
 
 .card { background: #fff; padding: 20px; margin-bottom: 20px; border-left: 6px solid #002b36; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
-
-/* ------------------ Rank Cards ------------------ */
-.rank { display: flex; align-items: center; gap: 20px; position: relative; padding: 10px; cursor: pointer; }
-.rank img { width: 60px; transition: transform 0.3s; }
-.rank:hover img { transform: scale(1.2); }
-
-.tooltip { display: none; position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: #002b36; color: #fff; padding: 12px; border-radius: 6px; font-size: 14px; width: 280px; z-index: 100; text-align: center; }
-.tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border-width: 6px; border-style: solid; border-color: #002b36 transparent transparent transparent; }
-.rank:hover .tooltip { display: block; }
-
-.rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
-
-.rank-details {
-    display: none;
-    margin-top: 10px;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
-    overflow: hidden;
-}
 
 /* ------------------ Company Banner Hover ------------------ */
 .card.company-banner {
@@ -85,24 +83,27 @@ nav a { color: #9be7b1; font-weight: bold; }
     background: rgba(0,43,54,0.4);
 }
 
-/* ------------------ Join Us Button ------------------ */
-.join-us-btn {
-    display: inline-block;
-    background-color: #9be7b1;
-    color: #002b36;
-    font-weight: bold;
-    padding: 12px 20px;
-    border-radius: 6px;
-    text-align: center;
-    margin-top: 15px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.join-us-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
+/* ------------------ Rank Cards ------------------ */
+.rank { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; position: relative; padding: 10px; cursor: pointer; }
+.rank img { width: 60px; transition: transform 0.3s; }
+.rank:hover img { transform: scale(1.2); }
 
-/* ------------------ Dark Mode Adjustments ------------------ */
+.tooltip { display: none; position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: #002b36; color: #fff; padding: 12px; border-radius: 6px; font-size: 14px; width: 280px; z-index: 100; text-align: center; }
+.tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border-width: 6px; border-style: solid; border-color: #002b36 transparent transparent transparent; }
+.rank:hover .tooltip { display: block; }
+
+.rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+
+.rank-details { display: none; margin-top: 10px; transition: max-height 0.3s ease, opacity 0.3s ease; overflow: hidden; }
+
+/* ------------------ Filter Buttons ------------------ */
+.filter-btns { margin-bottom: 20px; }
+.filter-btns button {
+    background-color: #9be7b1; color:#002b36; border:none; padding:8px 15px; margin-right:8px; border-radius:6px; cursor:pointer; font-weight:bold;
+}
+.filter-btns button:hover { transform: translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.3); }
+
+/* ------------------ Dark Mode ------------------ */
 body.dark-mode header, 
 body.dark-mode nav, 
 body.dark-mode .tooltip, 
@@ -113,7 +114,6 @@ body.dark-mode .card {
 body.dark-mode .card { border-left-color: #9be7b1; }
 body.dark-mode .join-us-btn { background-color: #002b36; color: #9be7b1; }
 
-/* Smooth Scroll */
 html { scroll-behavior: smooth; }
 
 footer { background: #002b36; color: #fff; text-align: center; padding: 20px; font-size: 14px; }
@@ -131,10 +131,10 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
         <a href="#docs">Docs</a> | 
         <a href="#youtube">YouTube</a>
         <button id="darkModeToggle">Dark/Light Mode</button>
+        <a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join Us</a>
     </div>
 </div>
 
-<!-- ------------------ Header ------------------ -->
 <header>
     <img src="badge.png" alt="Regiment Badge" class="badge">
     <div class="title">
@@ -143,7 +143,6 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
     </div>
 </header>
 
-<!-- ------------------ Navigation ------------------ -->
 <nav>
     <a href="#companies">Companies</a>
     <a href="#ranks">Ranks</a>
@@ -152,7 +151,6 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
     <a href="#youtube">YouTube</a>
 </nav>
 
-<!-- ------------------ Hero ------------------ -->
 <div class="hero">
     <div class="hero-overlay"></div>
 </div>
@@ -161,12 +159,11 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 <div class="section" id="companies">
 <h2>Companies & Command</h2>
 
-<div class="card company-banner company-battalion">
-<h3>Battalion Headquarters</h3>
-<p><b>Officer Commanding:</b> Lieutenant Colonel Lucaetank09</p>
-<p><b>Senior Major:</b> Major 12MATEIdarius</p>
-<p><b>Regimental Sergeant Major:</b> Vacant</p>
-<a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join Us</a>
+<div class="card company-banner company-1">
+<h3>No. 1 Company</h3>
+<p><b>Officer Commanding:</b> Major Vacant</p>
+<p><b>Second In Command:</b> Vacant</p>
+<p><b>Company Sergeant Major:</b> Vacant</p>
 </div>
 
 <div class="card company-banner company-2">
@@ -174,15 +171,6 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 <p><b>Officer Commanding:</b> Major tyjimmyjammy</p>
 <p><b>Second In Command:</b> Vacant</p>
 <p><b>Company Sergeant Major:</b> Vacant</p>
-<a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join Us</a>
-</div>
-
-<div class="card company-banner company-1">
-<h3>No. 1 Company</h3>
-<p><b>Officer Commanding:</b> Major Vacant</p>
-<p><b>Second In Command:</b> Vacant</p>
-<p><b>Company Sergeant Major:</b> Vacant</p>
-<a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join Us</a>
 </div>
 
 <div class="card company-banner company-support">
@@ -190,7 +178,6 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 <p><b>Officer Commanding:</b> Vacant</p>
 <p><b>Second In Command:</b> Vacant</p>
 <p><b>Company Sergeant Major:</b> Vacant</p>
-<a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join Us</a>
 </div>
 
 </div>
@@ -198,28 +185,130 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 <!-- ------------------ Ranks ------------------ -->
 <div class="section" id="ranks">
 <h2>All Ranks</h2>
+
+<div class="filter-btns">
+<button onclick="filterRanks('all')">All</button>
+<button onclick="filterRanks('officer')">Officers</button>
+<button onclick="filterRanks('nco')">NCOs</button>
+</div>
+
 <div class="rank-grid">
-<!-- Example interactive rank card -->
-<div class="card rank" onclick="toggleRank(this)">
+<!-- Ranks Example: repeat for all 12 ranks -->
+<div class="card rank officer" onclick="toggleRank(this)">
+    <img src="Rank8.png" alt="Second Lieutenant">
+    <h3>Second Lieutenant</h3>
+    <div class="tooltip">Junior commissioned officer leading a platoon.</div>
+    <div class="rank-details">
+        <p>Leads a platoon, supports company operations.</p>
+    </div>
+</div>
+
+<div class="card rank officer" onclick="toggleRank(this)">
+    <img src="Rank9.png" alt="Lieutenant">
+    <h3>Lieutenant</h3>
+    <div class="tooltip">Commands a platoon or supports company ops.</div>
+    <div class="rank-details">
+        <p>Leads platoon missions, assists Captain in company duties.</p>
+    </div>
+</div>
+
+<div class="card rank officer" onclick="toggleRank(this)">
+    <img src="Rank10.png" alt="Captain">
+    <h3>Captain</h3>
+    <div class="tooltip">Company-level officer supporting tactical operations.</div>
+    <div class="rank-details">
+        <p>Responsible for company-level operations and training.</p>
+    </div>
+</div>
+
+<div class="card rank officer" onclick="toggleRank(this)">
+    <img src="Rank11.png" alt="Major">
+    <h3>Major</h3>
+    <div class="tooltip">Company commander or staff officer.</div>
+    <div class="rank-details">
+        <p>Commands company or serves on battalion staff.</p>
+    </div>
+</div>
+
+<div class="card rank officer" onclick="toggleRank(this)">
+    <img src="Rank12.png" alt="Lieutenant Colonel">
+    <h3>Lieutenant Colonel</h3>
+    <div class="tooltip">Battalion commanding officer.</div>
+    <div class="rank-details">
+        <p>Leads battalion and oversees all companies.</p>
+    </div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
     <img src="Rank1.png" alt="Guardsman">
     <h3>Guardsman</h3>
     <div class="tooltip">Basic soldier rank in Guards regiments.</div>
     <div class="rank-details">
-        <p>Responsibilities: patrolling, section duties, attending drills.</p>
-        <img src="guardsman_in_game.png" alt="Guardsman in Roblox" style="width:100%; border-radius:6px; margin-top:8px;">
+        <p>Performs section and platoon duties.</p>
     </div>
 </div>
 
-<!-- Repeat for other ranks similarly -->
+<div class="card rank nco" onclick="toggleRank(this)">
+    <img src="Rank2.png" alt="Lance Corporal">
+    <h3>Lance Corporal</h3>
+    <div class="tooltip">Junior NCO assisting section command.</div>
+    <div class="rank-details">
+        <p>Assists in training, leads small teams.</p>
+    </div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
+    <img src="Rank3.png" alt="Lance Sergeant">
+    <h3>Lance Sergeant</h3>
+    <div class="tooltip">Guards equivalent of Corporal, commands a section.</div>
+    <div class="rank-details">
+        <p>Commands a section, responsible for minor admin and training.</p>
+    </div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
+    <img src="Rank4.png" alt="Sergeant">
+    <h3>Sergeant</h3>
+    <div class="tooltip">Senior NCO responsible for discipline and training.</div>
+    <div class="rank-details">
+        <p>Maintains discipline, oversees training of soldiers.</p>
+    </div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
+    <img src="Rank5.png" alt="Colour Sergeant">
+    <h3>Colour Sergeant</h3>
+    <div class="tooltip">Experienced NCO in charge of company-level administration.</div>
+    <div class="rank-details">
+        <p>Handles admin and logistics for the company.</p>
+    </div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
+    <img src="Rank6.png" alt="Warrant Officer Class 2">
+    <h3>Warrant Officer Class 2</h3>
+    <div class="tooltip">Senior NCO at company or battalion level.</div>
+    <div class="rank-details">
+        <p>Advises officers, manages senior NCO duties.</p>
+    </div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
+    <img src="Rank7.png" alt="Warrant Officer Class 1">
+    <h3>Warrant Officer Class 1</h3>
+    <div class="tooltip">Most senior NCO in the regiment.</div>
+    <div class="rank-details">
+        <p>Top NCO, regiment-wide responsibility.</p>
+    </div>
+</div>
+
 </div>
 </div>
 
-<!-- ------------------ Footer ------------------ -->
 <footer>
 &copy; 2026 Irish Guards | UK Ministry of Defence Style Replica
 </footer>
 
-<!-- ------------------ Scripts ------------------ -->
 <script>
 // Dark/Light Mode Toggle
 const toggleBtn = document.getElementById('darkModeToggle');
@@ -235,6 +324,20 @@ function toggleRank(card) {
     } else {
         details.style.display = 'none';
     }
+}
+
+// Rank Filter
+function filterRanks(category) {
+    const ranks = document.querySelectorAll('.rank');
+    ranks.forEach(rank => {
+        if(category === 'all') {
+            rank.style.display = 'block';
+        } else if(rank.classList.contains(category)) {
+            rank.style.display = 'block';
+        } else {
+            rank.style.display = 'none';
+        }
+    });
 }
 </script>
 
