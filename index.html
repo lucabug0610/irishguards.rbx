@@ -13,10 +13,8 @@ body.dark-mode { background-color: #002b36; color: #f4f4f4; }
 a { text-decoration: none; color: inherit; }
 a:hover { text-decoration: underline; }
 
-.gov-bar { background: #000; color: #fff; font-size: 14px; padding: 6px 40px; display: flex; justify-content: space-between; align-items: center; }
+.gov-bar { background: #000; color: #fff; font-size: 14px; padding: 6px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap:10px; }
 .gov-bar a { color: #9be7b1; margin-left: 15px; }
-
-/* Dark mode toggle button */
 #darkModeToggle {
     cursor: pointer;
     background: #9be7b1;
@@ -26,14 +24,12 @@ a:hover { text-decoration: underline; }
     font-weight: bold;
     color: #002b36;
 }
-
-/* Join Us Button */
 .join-us-btn {
     display: inline-block;
     background-color: #9be7b1;
     color: #002b36;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 6px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -49,7 +45,7 @@ header .title { display: flex; flex-direction: column; }
 header .title h1 { font-size: 32px; }
 header .title p { font-style: italic; color: #9be7b1; font-size: 16px; margin-top: 5px; }
 
-nav { background: #073642; padding: 12px 40px; display: flex; gap: 20px; }
+nav { background: #073642; padding: 12px 40px; display: flex; gap: 20px; flex-wrap: wrap; }
 nav a { color: #9be7b1; font-weight: bold; }
 
 .hero { position: relative; height: 250px; background: url('banner.png') center/cover no-repeat; background-attachment: fixed; }
@@ -61,7 +57,6 @@ nav a { color: #9be7b1; font-weight: bold; }
 .card { background: #fff; padding: 20px; margin-bottom: 20px; border-left: 6px solid #002b36; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
 
-/* ------------------ Company Banner Hover ------------------ */
 .card.company-banner {
     position: relative;
     overflow: hidden;
@@ -96,14 +91,12 @@ nav a { color: #9be7b1; font-weight: bold; }
 
 .rank-details { display: none; margin-top: 10px; transition: max-height 0.3s ease, opacity 0.3s ease; overflow: hidden; }
 
-/* ------------------ Filter Buttons ------------------ */
 .filter-btns { margin-bottom: 20px; }
 .filter-btns button {
     background-color: #9be7b1; color:#002b36; border:none; padding:8px 15px; margin-right:8px; border-radius:6px; cursor:pointer; font-weight:bold;
 }
 .filter-btns button:hover { transform: translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.3); }
 
-/* ------------------ Dark Mode ------------------ */
 body.dark-mode header, 
 body.dark-mode nav, 
 body.dark-mode .tooltip, 
@@ -121,7 +114,6 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 </head>
 <body>
 
-<!-- ------------------ Top Bar ------------------ -->
 <div class="gov-bar">
     <div>UK Ministry of Defence</div>
     <div>
@@ -155,7 +147,7 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
     <div class="hero-overlay"></div>
 </div>
 
-<!-- ------------------ Companies ------------------ -->
+<!-- Companies -->
 <div class="section" id="companies">
 <h2>Companies & Command</h2>
 
@@ -182,7 +174,7 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 
 </div>
 
-<!-- ------------------ Ranks ------------------ -->
+<!-- Ranks -->
 <div class="section" id="ranks">
 <h2>All Ranks</h2>
 
@@ -190,118 +182,141 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 <button onclick="filterRanks('all')">All</button>
 <button onclick="filterRanks('officer')">Officers</button>
 <button onclick="filterRanks('nco')">NCOs</button>
+<button onclick="filterRanks('enlisted')">Enlisted</button>
 </div>
 
 <div class="rank-grid">
-<!-- Ranks Example: repeat for all 12 ranks -->
+
+<!-- Enlisted -->
+<div class="card rank enlisted" onclick="toggleRank(this)">
+<img src="Rank1.png" alt="Guardsman">
+<h3>Guardsman</h3>
+<div class="tooltip">Basic soldier rank in Guards regiments.</div>
+<div class="rank-details"><p>Performs section and platoon duties.</p></div>
+</div>
+
+<!-- NCOs -->
+<div class="card rank nco" onclick="toggleRank(this)">
+<img src="Rank2.png" alt="Lance Corporal">
+<h3>Lance Corporal</h3>
+<div class="tooltip">Junior NCO assisting section command.</div>
+<div class="rank-details"><p>Assists in training, leads small teams.</p></div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
+<img src="Rank3.png" alt="Lance Sergeant">
+<h3>Lance Sergeant</h3>
+<div class="tooltip">Guards equivalent of Corporal, commands a section.</div>
+<div class="rank-details"><p>Commands a section, responsible for minor admin and training.</p></div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
+<img src="Rank4.png" alt="Sergeant">
+<h3>Sergeant</h3>
+<div class="tooltip">Senior NCO responsible for discipline and training.</div>
+<div class="rank-details"><p>Maintains discipline, oversees training of soldiers.</p></div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
+<img src="Rank5.png" alt="Colour Sergeant">
+<h3>Colour Sergeant</h3>
+<div class="tooltip">Experienced NCO in charge of company-level administration.</div>
+<div class="rank-details"><p>Handles admin and logistics for the company.</p></div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
+<img src="Rank6.png" alt="Warrant Officer Class 2">
+<h3>Warrant Officer Class 2</h3>
+<div class="tooltip">Senior NCO at company or battalion level.</div>
+<div class="rank-details"><p>Advises officers, manages senior NCO duties.</p></div>
+</div>
+
+<div class="card rank nco" onclick="toggleRank(this)">
+<img src="Rank7.png" alt="Warrant Officer Class 1">
+<h3>Warrant Officer Class 1</h3>
+<div class="tooltip">Most senior NCO in the regiment.</div>
+<div class="rank-details"><p>Top NCO, regiment-wide responsibility.</p></div>
+</div>
+
+<!-- Officers -->
 <div class="card rank officer" onclick="toggleRank(this)">
-    <img src="Rank8.png" alt="Second Lieutenant">
-    <h3>Second Lieutenant</h3>
-    <div class="tooltip">Junior commissioned officer leading a platoon.</div>
-    <div class="rank-details">
-        <p>Leads a platoon, supports company operations.</p>
-    </div>
+<img src="Rank8.png" alt="Second Lieutenant">
+<h3>Second Lieutenant</h3>
+<div class="tooltip">Junior commissioned officer leading a platoon.</div>
+<div class="rank-details"><p>Leads a platoon, supports company operations.</p></div>
 </div>
 
 <div class="card rank officer" onclick="toggleRank(this)">
-    <img src="Rank9.png" alt="Lieutenant">
-    <h3>Lieutenant</h3>
-    <div class="tooltip">Commands a platoon or supports company ops.</div>
-    <div class="rank-details">
-        <p>Leads platoon missions, assists Captain in company duties.</p>
-    </div>
+<img src="Rank9.png" alt="Lieutenant">
+<h3>Lieutenant</h3>
+<div class="tooltip">Commands a platoon or supports company ops.</div>
+<div class="rank-details"><p>Leads platoon missions, assists Captain in company duties.</p></div>
 </div>
 
 <div class="card rank officer" onclick="toggleRank(this)">
-    <img src="Rank10.png" alt="Captain">
-    <h3>Captain</h3>
-    <div class="tooltip">Company-level officer supporting tactical operations.</div>
-    <div class="rank-details">
-        <p>Responsible for company-level operations and training.</p>
-    </div>
+<img src="Rank10.png" alt="Captain">
+<h3>Captain</h3>
+<div class="tooltip">Company-level officer supporting tactical operations.</div>
+<div class="rank-details"><p>Responsible for company-level operations and training.</p></div>
 </div>
 
 <div class="card rank officer" onclick="toggleRank(this)">
-    <img src="Rank11.png" alt="Major">
-    <h3>Major</h3>
-    <div class="tooltip">Company commander or staff officer.</div>
-    <div class="rank-details">
-        <p>Commands company or serves on battalion staff.</p>
-    </div>
+<img src="Rank11.png" alt="Major">
+<h3>Major</h3>
+<div class="tooltip">Company commander or staff officer.</div>
+<div class="rank-details"><p>Commands company or serves on battalion staff.</p></div>
 </div>
 
 <div class="card rank officer" onclick="toggleRank(this)">
-    <img src="Rank12.png" alt="Lieutenant Colonel">
-    <h3>Lieutenant Colonel</h3>
-    <div class="tooltip">Battalion commanding officer.</div>
-    <div class="rank-details">
-        <p>Leads battalion and oversees all companies.</p>
-    </div>
+<img src="Rank12.png" alt="Lieutenant Colonel">
+<h3>Lieutenant Colonel</h3>
+<div class="tooltip">Battalion commanding officer.</div>
+<div class="rank-details"><p>Leads battalion and oversees all companies.</p></div>
 </div>
 
-<div class="card rank nco" onclick="toggleRank(this)">
-    <img src="Rank1.png" alt="Guardsman">
-    <h3>Guardsman</h3>
-    <div class="tooltip">Basic soldier rank in Guards regiments.</div>
-    <div class="rank-details">
-        <p>Performs section and platoon duties.</p>
-    </div>
+</div>
 </div>
 
-<div class="card rank nco" onclick="toggleRank(this)">
-    <img src="Rank2.png" alt="Lance Corporal">
-    <h3>Lance Corporal</h3>
-    <div class="tooltip">Junior NCO assisting section command.</div>
-    <div class="rank-details">
-        <p>Assists in training, leads small teams.</p>
-    </div>
+<!-- Rank Descriptions -->
+<div class="section" id="rank-descriptions">
+<h2>Rank Descriptions</h2>
+<div class="card">
+<p>Guardsman – Basic soldier performing section and platoon duties.</p>
+<p>Lance Corporal – Junior NCO assisting in training and section leadership.</p>
+<p>Lance Sergeant – Commands a section, equivalent of Corporal in Guards.</p>
+<p>Sergeant – Senior NCO managing discipline and training.</p>
+<p>Colour Sergeant – Experienced NCO responsible for company administration.</p>
+<p>Warrant Officer Class 2 – Senior NCO at company or battalion level.</p>
+<p>Warrant Officer Class 1 – Most senior NCO in the regiment.</p>
+<p>Second Lieutenant – Junior commissioned officer, leads platoon.</p>
+<p>Lieutenant – Platoon commander or supports company ops.</p>
+<p>Captain – Company-level officer supporting tactical operations.</p>
+<p>Major – Company commander or staff officer.</p>
+<p>Lieutenant Colonel – Battalion commanding officer.</p>
+</div>
 </div>
 
-<div class="card rank nco" onclick="toggleRank(this)">
-    <img src="Rank3.png" alt="Lance Sergeant">
-    <h3>Lance Sergeant</h3>
-    <div class="tooltip">Guards equivalent of Corporal, commands a section.</div>
-    <div class="rank-details">
-        <p>Commands a section, responsible for minor admin and training.</p>
-    </div>
+<!-- Docs -->
+<div class="section" id="docs">
+<h2>Google Docs</h2>
+<div class="card">
+<ul>
+<li><a href="https://docs.google.com/document/d/1pvKMLcyz5Q0LFxaX3D3hFgqUplQb4vEIJ8mdXkKMU10/edit?usp=sharing" target="_blank">Sentry Duties Manual</a></li>
+<li><a href="https://docs.google.com/document/d/1keKOJdRrM2Fexl-K4N39NwtoGTKckYKbr-8nt8LJhgA/edit?usp=sharing" target="_blank">Drill Manual</a></li>
+<li><a href="https://docs.google.com/document/d/1xlCT4LNlay4G0hybCxLTQFEzWggRwIjV4tQ8cOXR1sc/edit?usp=sharing" target="_blank">Battle Course Aide Memoire 3</a></li>
+<li><a href="https://docs.google.com/spreadsheets/d/1PczvVLKAMNk5ePLY4scvkR-_OBwlybziC1UPAolKh3A/edit?usp=sharing" target="_blank">Regimental ORBAT</a></li>
+<li><a href="https://forms.gle/2qTNom6FGqJBj8fQ8" target="_blank">RMAS Entry Examination</a></li>
+</ul>
+</div>
 </div>
 
-<div class="card rank nco" onclick="toggleRank(this)">
-    <img src="Rank4.png" alt="Sergeant">
-    <h3>Sergeant</h3>
-    <div class="tooltip">Senior NCO responsible for discipline and training.</div>
-    <div class="rank-details">
-        <p>Maintains discipline, oversees training of soldiers.</p>
-    </div>
-</div>
-
-<div class="card rank nco" onclick="toggleRank(this)">
-    <img src="Rank5.png" alt="Colour Sergeant">
-    <h3>Colour Sergeant</h3>
-    <div class="tooltip">Experienced NCO in charge of company-level administration.</div>
-    <div class="rank-details">
-        <p>Handles admin and logistics for the company.</p>
-    </div>
-</div>
-
-<div class="card rank nco" onclick="toggleRank(this)">
-    <img src="Rank6.png" alt="Warrant Officer Class 2">
-    <h3>Warrant Officer Class 2</h3>
-    <div class="tooltip">Senior NCO at company or battalion level.</div>
-    <div class="rank-details">
-        <p>Advises officers, manages senior NCO duties.</p>
-    </div>
-</div>
-
-<div class="card rank nco" onclick="toggleRank(this)">
-    <img src="Rank7.png" alt="Warrant Officer Class 1">
-    <h3>Warrant Officer Class 1</h3>
-    <div class="tooltip">Most senior NCO in the regiment.</div>
-    <div class="rank-details">
-        <p>Top NCO, regiment-wide responsibility.</p>
-    </div>
-</div>
-
+<!-- YouTube -->
+<div class="section" id="youtube">
+<h2>YouTube Channels</h2>
+<div class="card">
+<ul>
+<li><a href="https://www.youtube.com/@irishguardsrbx-i8l" target="_blank">Irish Guards YouTube</a></li>
+</ul>
 </div>
 </div>
 
@@ -311,32 +326,23 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 
 <script>
 // Dark/Light Mode Toggle
-const toggleBtn = document.getElementById('darkModeToggle');
-toggleBtn.addEventListener('click', () => {
+document.getElementById('darkModeToggle').addEventListener('click', ()=>{
     document.body.classList.toggle('dark-mode');
 });
 
 // Rank Card Expand/Collapse
 function toggleRank(card) {
     const details = card.querySelector('.rank-details');
-    if(details.style.display === 'none' || details.style.display === '') {
-        details.style.display = 'block';
-    } else {
-        details.style.display = 'none';
-    }
+    details.style.display = (details.style.display==='block') ? 'none' : 'block';
 }
 
-// Rank Filter
+// Rank Filtering
 function filterRanks(category) {
     const ranks = document.querySelectorAll('.rank');
-    ranks.forEach(rank => {
-        if(category === 'all') {
-            rank.style.display = 'block';
-        } else if(rank.classList.contains(category)) {
-            rank.style.display = 'block';
-        } else {
-            rank.style.display = 'none';
-        }
+    ranks.forEach(r => {
+        if(category==='all'){ r.style.display='block'; }
+        else if(r.classList.contains(category)){ r.style.display='block'; }
+        else { r.style.display='none'; }
     });
 }
 </script>
