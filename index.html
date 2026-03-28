@@ -6,133 +6,104 @@
 <title>Irish Guards</title>
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; transition: background 0.3s, color 0.3s; }
-body.dark-mode { background-color: #002b36; color: #f4f4f4; }
+/* Reset and base */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:Arial,sans-serif; background:#f4f4f4; color:#333; transition: background 0.3s,color 0.3s; }
+body.dark-mode { background:#002b36; color:#f4f4f4; }
+a { text-decoration:none; color:inherit; }
+a:hover { text-decoration:underline; }
 
-a { text-decoration: none; color: inherit; }
-a:hover { text-decoration: underline; }
-
-.gov-bar { background: #000; color: #fff; font-size: 14px; padding: 6px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap:10px; }
-.gov-bar a { color: #9be7b1; margin-left: 15px; }
+/* Gov bar and buttons */
+.gov-bar { background:#000; color:#fff; font-size:14px; padding:6px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+.gov-bar a { color:#9be7b1; margin-left:15px; }
 #darkModeToggle {
-    cursor: pointer;
-    background: #9be7b1;
-    border: none;
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-weight: bold;
-    color: #002b36;
+    cursor:pointer;
+    background:#9be7b1;
+    border:none;
+    padding:5px 12px;
+    border-radius:4px;
+    font-weight:bold;
+    color:#002b36;
 }
 .join-us-btn {
-    display: inline-block;
-    background-color: #002b36; /* dark background for contrast */
-    color: #9be7b1; /* light green text */
-    font-weight: bold;
-    padding: 8px 15px;
-    border-radius: 6px;
-    text-align: center;
-    text-decoration: none;
+    display:inline-block;
+    background-color:#002b36;
+    color:#9be7b1;
+    font-weight:bold;
+    padding:8px 15px;
+    border-radius:6px;
+    text-align:center;
+    text-decoration:none;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-body.dark-mode .join-us-btn {
-    background-color: #9be7b1; /* light green bg in dark mode */
-    color: #002b36; /* dark text */
-}
-.join-us-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
+body.dark-mode .join-us-btn { background-color:#9be7b1; color:#002b36; }
+.join-us-btn:hover { transform:translateY(-3px); box-shadow:0 6px 15px rgba(0,0,0,0.3); }
 
-header { display: flex; align-items: center; background: #002b36; padding: 20px 40px; color: #fff; }
-header img.badge { height: 70px; margin-right: 20px; }
-header .title { display: flex; flex-direction: column; }
-header .title h1 { font-size: 32px; }
-header .title p { font-style: italic; color: #9be7b1; font-size: 16px; margin-top: 5px; }
+/* Header */
+header { display:flex; align-items:center; background:#002b36; padding:20px 40px; color:#fff; }
+header img.badge { height:70px; margin-right:20px; }
+header .title { display:flex; flex-direction:column; }
+header .title h1 { font-size:32px; }
+header .title p { font-style:italic; color:#9be7b1; font-size:16px; margin-top:5px; }
 
-nav { background: #073642; padding: 12px 40px; display: flex; gap: 20px; flex-wrap: wrap; }
-nav a { color: #9be7b1; font-weight: bold; }
+/* Navigation */
+nav { background:#073642; padding:12px 40px; display:flex; gap:20px; flex-wrap:wrap; }
+nav a { color:#9be7b1; font-weight:bold; }
 
-.hero {
-    position: relative;
-    width: 100%;
-    height: 80vh; /* 80% of the viewport height */
-    min-height: 400px; /* ensures it’s visible on small screens */
-    background: url('banner.png') center center / cover no-repeat;
-    background-attachment: fixed; /* for parallax effect */
-}
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5); /* slightly lighter overlay for better visibility */
-}
+/* Hero */
+.hero { position:relative; width:100%; height:80vh; min-height:400px; background:url('banner.png') center center/cover no-repeat; background-attachment:fixed; }
+.hero-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); }
 
-.section { padding: 40px; max-width: 1000px; margin: auto; }
-.section h2 { border-bottom: 2px solid #073642; padding-bottom: 8px; margin-bottom: 20px; color: #002b36; }
+/* Sections */
+.section { padding:40px; max-width:1000px; margin:auto; }
+.section h2 { border-bottom:2px solid #073642; padding-bottom:8px; margin-bottom:20px; color:#002b36; }
 
-.card { background: #fff; padding: 20px; margin-bottom: 20px; border-left: 6px solid #002b36; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-.card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
-
-.card.company-banner {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.card.company-banner:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-}
-.card.company-banner::before {
-    content: "";
-    position: absolute;
-    top:0; left:0; width:100%; height:100%;
-    background: rgba(0,43,54,0.2);
-    transition: background 0.3s;
-}
-.card.company-banner:hover::before {
-    background: rgba(0,43,54,0.4);
-}
+/* Cards */
+.card { background:#fff; padding:20px; margin-bottom:20px; border-left:6px solid #002b36; border-radius:4px; box-shadow:0 2px 5px rgba(0,0,0,0.1); transition:transform 0.3s,box-shadow 0.3s; }
+.card:hover { transform:translateY(-5px); box-shadow:0 8px 15px rgba(0,0,0,0.2); }
+.card.company-banner { position:relative; overflow:hidden; cursor:pointer; transition: transform 0.3s, box-shadow 0.3s; }
+.card.company-banner:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 10px 20px rgba(0,0,0,0.25); }
+.card.company-banner::before { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,43,54,0.2); transition:background 0.3s; }
+.card.company-banner:hover::before { background:rgba(0,43,54,0.4); }
 
 /* Rank Cards */
-.rank { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; position: relative; padding: 10px; cursor: pointer; }
-.rank img { width: 60px; transition: transform 0.3s; }
-.rank:hover img { transform: scale(1.2); }
+.rank { display:flex; flex-direction:column; align-items:flex-start; gap:8px; position:relative; padding:10px; cursor:pointer; }
+.rank img { width:60px; transition: transform 0.3s; }
+.rank:hover img { transform:scale(1.2); }
+.tooltip { display:none; position:absolute; bottom:110%; left:50%; transform:translateX(-50%); background:#002b36; color:#fff; padding:12px; border-radius:6px; font-size:14px; width:280px; z-index:100; text-align:center; }
+.tooltip::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%); border-width:6px; border-style:solid; border-color:#002b36 transparent transparent transparent; }
+.rank:hover .tooltip { display:block; }
+.rank-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; }
 
-.tooltip { display: none; position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: #002b36; color: #fff; padding: 12px; border-radius: 6px; font-size: 14px; width: 280px; z-index: 100; text-align: center; }
-.tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border-width: 6px; border-style: solid; border-color: #002b36 transparent transparent transparent; }
-.rank:hover .tooltip { display: block; }
+/* Rank Filters */
+.filter-btns { margin-bottom:20px; }
+.filter-btns button { background-color:#9be7b1; color:#002b36; border:none; padding:8px 15px; margin-right:8px; border-radius:6px; cursor:pointer; font-weight:bold; }
+.filter-btns button:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.3); }
 
-.rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+/* Dark Mode overrides */
+body.dark-mode header, body.dark-mode nav, body.dark-mode .tooltip, body.dark-mode .card { background-color:#073642; color:#f4f4f4; }
+body.dark-mode .card { border-left-color:#9be7b1; }
+body.dark-mode h2 { color:#9be7b1; }
+body.dark-mode h3 { color:#f4f4f4; }
 
-.rank-details { display: none; margin-top: 10px; transition: max-height 0.3s ease, opacity 0.3s ease; overflow: hidden; }
+/* Access denied */
+#denied-wrapper { display:none; text-align:center; padding:100px; }
 
-.filter-btns { margin-bottom: 20px; }
-.filter-btns button {
-    background-color: #9be7b1; color:#002b36; border:none; padding:8px 15px; margin-right:8px; border-radius:6px; cursor:pointer; font-weight:bold;
-}
-.filter-btns button:hover { transform: translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.3); }
-
-body.dark-mode header, 
-body.dark-mode nav, 
-body.dark-mode .tooltip, 
-body.dark-mode .card {
-    background-color: #073642;
-    color: #f4f4f4;
-}
-body.dark-mode .card { border-left-color: #9be7b1; }
-
-/* Heading fixes for dark mode */
-body.dark-mode h2 { color: #9be7b1; }
-body.dark-mode h3 { color: #f4f4f4; }
-
-html { scroll-behavior: smooth; }
-
-footer { background: #002b36; color: #fff; text-align: center; padding: 20px; font-size: 14px; }
+html { scroll-behavior:smooth; }
+footer { background:#002b36; color:#fff; text-align:center; padding:20px; font-size:14px; }
 </style>
 </head>
 <body>
+
+<!-- ACCESS DENIED -->
+<div id="denied-wrapper">
+    <img src="badge.png" alt="Regiment Badge" style="width:200px; margin-bottom:20px;">
+    <h2>You do not have access to this website</h2>
+    <a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join the Group</a>
+</div>
+
+<!-- MAIN WEBSITE -->
+<div id="access-wrapper" style="display:none;">
 
 <div class="gov-bar">
     <div>UK Ministry of Defence</div>
@@ -170,130 +141,49 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 <!-- Companies -->
 <div class="section" id="companies">
 <h2>Companies & Command</h2>
-
 <div class="card company-banner company-1">
 <h3>No. 1 Company</h3>
 <p><b>Officer Commanding:</b> Major Vacant</p>
 <p><b>Second In Command:</b> Vacant</p>
 <p><b>Company Sergeant Major:</b> Vacant</p>
 </div>
-
 <div class="card company-banner company-2">
 <h3>No. 2 Company</h3>
 <p><b>Officer Commanding:</b> Major tyjimmyjammy</p>
 <p><b>Second In Command:</b> Vacant</p>
 <p><b>Company Sergeant Major:</b> Vacant</p>
 </div>
-
 <div class="card company-banner company-support">
 <h3>Support Company</h3>
 <p><b>Officer Commanding:</b> Vacant</p>
 <p><b>Second In Command:</b> Vacant</p>
 <p><b>Company Sergeant Major:</b> Vacant</p>
 </div>
-
 </div>
 
 <!-- Ranks -->
 <div class="section" id="ranks">
 <h2>All Ranks</h2>
-
 <div class="filter-btns">
 <button onclick="filterRanks('all')">All</button>
-<button onclick="filterRanks('officer')">Officers</button>
-<button onclick="filterRanks('nco')">NCOs</button>
 <button onclick="filterRanks('enlisted')">Enlisted</button>
+<button onclick="filterRanks('nco')">NCO</button>
+<button onclick="filterRanks('officer')">Officer</button>
 </div>
-
 <div class="rank-grid">
-
-<!-- Enlisted -->
-<div class="card rank enlisted" onclick="toggleRank(this)">
-<img src="Rank1.png" alt="Guardsman">
-<h3>Guardsman</h3>
-<div class="tooltip">Basic soldier rank in Guards regiments.</div>
-<div class="rank-details"><p>Performs section and platoon duties.</p></div>
-</div>
-
-<!-- NCOs -->
-<div class="card rank nco" onclick="toggleRank(this)">
-<img src="Rank2.png" alt="Lance Corporal">
-<h3>Lance Corporal</h3>
-<div class="tooltip">Junior NCO assisting section command.</div>
-<div class="rank-details"><p>Assists in training, leads small teams.</p></div>
-</div>
-
-<div class="card rank nco" onclick="toggleRank(this)">
-<img src="Rank3.png" alt="Lance Sergeant">
-<h3>Lance Sergeant</h3>
-<div class="tooltip">Guards equivalent of Corporal, commands a section.</div>
-<div class="rank-details"><p>Commands a section, responsible for minor admin and training.</p></div>
-</div>
-
-<div class="card rank nco" onclick="toggleRank(this)">
-<img src="Rank4.png" alt="Sergeant">
-<h3>Sergeant</h3>
-<div class="tooltip">Senior NCO responsible for discipline and training.</div>
-<div class="rank-details"><p>Maintains discipline, oversees training of soldiers.</p></div>
-</div>
-
-<div class="card rank nco" onclick="toggleRank(this)">
-<img src="Rank5.png" alt="Colour Sergeant">
-<h3>Colour Sergeant</h3>
-<div class="tooltip">Experienced NCO in charge of company-level administration.</div>
-<div class="rank-details"><p>Handles admin and logistics for the company.</p></div>
-</div>
-
-<div class="card rank nco" onclick="toggleRank(this)">
-<img src="Rank6.png" alt="Warrant Officer Class 2">
-<h3>Warrant Officer Class 2</h3>
-<div class="tooltip">Senior NCO at company or battalion level.</div>
-<div class="rank-details"><p>Advises officers, manages senior NCO duties.</p></div>
-</div>
-
-<div class="card rank nco" onclick="toggleRank(this)">
-<img src="Rank7.png" alt="Warrant Officer Class 1">
-<h3>Warrant Officer Class 1</h3>
-<div class="tooltip">Most senior NCO in the regiment.</div>
-<div class="rank-details"><p>Top NCO, regiment-wide responsibility.</p></div>
-</div>
-
-<!-- Officers -->
-<div class="card rank officer" onclick="toggleRank(this)">
-<img src="Rank8.png" alt="Second Lieutenant">
-<h3>Second Lieutenant</h3>
-<div class="tooltip">Junior commissioned officer leading a platoon.</div>
-<div class="rank-details"><p>Leads a platoon, supports company operations.</p></div>
-</div>
-
-<div class="card rank officer" onclick="toggleRank(this)">
-<img src="Rank9.png" alt="Lieutenant">
-<h3>Lieutenant</h3>
-<div class="tooltip">Commands a platoon or supports company ops.</div>
-<div class="rank-details"><p>Leads platoon missions, assists Captain in company duties.</p></div>
-</div>
-
-<div class="card rank officer" onclick="toggleRank(this)">
-<img src="Rank10.png" alt="Captain">
-<h3>Captain</h3>
-<div class="tooltip">Company-level officer supporting tactical operations.</div>
-<div class="rank-details"><p>Responsible for company-level operations and training.</p></div>
-</div>
-
-<div class="card rank officer" onclick="toggleRank(this)">
-<img src="Rank11.png" alt="Major">
-<h3>Major</h3>
-<div class="tooltip">Company commander or staff officer.</div>
-<div class="rank-details"><p>Commands company or serves on battalion staff.</p></div>
-</div>
-
-<div class="card rank officer" onclick="toggleRank(this)">
-<img src="Rank12.png" alt="Lieutenant Colonel">
-<h3>Lieutenant Colonel</h3>
-<div class="tooltip">Battalion commanding officer.</div>
-<div class="rank-details"><p>Leads battalion and oversees all companies.</p></div>
-</div>
-
+<!-- Example rank -->
+<div class="card rank" data-type="enlisted"><img src="Rank1.png" alt="Guardsman"><div><h3>Guardsman</h3><div class="tooltip">Basic soldier performing section and platoon duties.</div></div></div>
+<div class="card rank" data-type="nco"><img src="Rank2.png" alt="Lance Corporal"><div><h3>Lance Corporal</h3><div class="tooltip">Junior NCO assisting in section leadership.</div></div></div>
+<div class="card rank" data-type="nco"><img src="Rank3.png" alt="Lance Sergeant"><div><h3>Lance Sergeant</h3><div class="tooltip">Commands a section, equivalent of Corporal in Guards.</div></div></div>
+<div class="card rank" data-type="nco"><img src="Rank4.png" alt="Sergeant"><div><h3>Sergeant</h3><div class="tooltip">Senior NCO managing discipline and training.</div></div></div>
+<div class="card rank" data-type="nco"><img src="Rank5.png" alt="Colour Sergeant"><div><h3>Colour Sergeant</h3><div class="tooltip">Experienced NCO responsible for company administration.</div></div></div>
+<div class="card rank" data-type="nco"><img src="Rank6.png" alt="Warrant Officer Class 2"><div><h3>Warrant Officer Class 2</h3><div class="tooltip">Senior NCO at company or battalion level.</div></div></div>
+<div class="card rank" data-type="nco"><img src="Rank7.png" alt="Warrant Officer Class 1"><div><h3>Warrant Officer Class 1</h3><div class="tooltip">Most senior NCO in the regiment.</div></div></div>
+<div class="card rank" data-type="officer"><img src="Rank8.png" alt="Second Lieutenant"><div><h3>Second Lieutenant</h3><div class="tooltip">Junior commissioned officer, leads platoon.</div></div></div>
+<div class="card rank" data-type="officer"><img src="Rank9.png" alt="Lieutenant"><div><h3>Lieutenant</h3><div class="tooltip">Commands a platoon or supports company operations.</div></div></div>
+<div class="card rank" data-type="officer"><img src="Rank10.png" alt="Captain"><div><h3>Captain</h3><div class="tooltip">Company-level officer supporting tactical operations.</div></div></div>
+<div class="card rank" data-type="officer"><img src="Rank11.png" alt="Major"><div><h3>Major</h3><div class="tooltip">Company commander or staff officer.</div></div></div>
+<div class="card rank" data-type="officer"><img src="Rank12.png" alt="Lieutenant Colonel"><div><h3>Lieutenant Colonel</h3><div class="tooltip">Battalion commanding officer.</div></div></div>
 </div>
 </div>
 
@@ -344,28 +234,57 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 &copy; 2026 Irish Guards | UK Ministry of Defence Style Replica
 </footer>
 
+</div>
+
 <script>
-// Dark/Light Mode Toggle
+// DARK/LIGHT MODE
 document.getElementById('darkModeToggle').addEventListener('click', ()=>{
     document.body.classList.toggle('dark-mode');
 });
 
-// Rank Card Expand/Collapse
-function toggleRank(card) {
-    const details = card.querySelector('.rank-details');
-    details.style.display = (details.style.display==='block') ? 'none' : 'block';
-}
-
-// Rank Filtering
-function filterRanks(category) {
-    const ranks = document.querySelectorAll('.rank');
-    ranks.forEach(r => {
-        if(category==='all'){ r.style.display='block'; }
-        else if(r.classList.contains(category)){ r.style.display='block'; }
-        else { r.style.display='none'; }
+// Rank filtering
+function filterRanks(type){
+    document.querySelectorAll('.rank').forEach(rank=>{
+        if(type==='all' || rank.dataset.type===type) rank.style.display='block';
+        else rank.style.display='none';
     });
 }
-</script>
 
+// ROBLOX OPENID + ACCESS CONTROL
+const allowedRanks = [241,242,244,245,246,247,248,249,250,251,252,253,254,255];
+const groupId = 579115429;
+function getUserIdFromOpenID(){
+    const params = new URLSearchParams(window.location.search);
+    const claimedId = params.get('openid.claimed_id');
+    if(claimedId){
+        const match = claimedId.match(/users\/(\d+)\/profile/);
+        if(match) return match[1];
+    }
+    return null;
+}
+async function checkAccess(){
+    let userId = getUserIdFromOpenID();
+    if(!userId){
+        const returnUrl = encodeURIComponent(window.location.href);
+        const openIdUrl = `https://www.roblox.com/OpenID/authorize?openid.return_to=${returnUrl}&openid.realm=${returnUrl}&openid.mode=checkid_setup&openid.ns=http://specs.openid.net/auth/2.0`;
+        window.location.href = openIdUrl;
+        return;
+    }
+    try {
+        const res = await fetch(`https://groups.roblox.com/v1/users/${userId}/groups/roles`);
+        const data = await res.json();
+        const group = data.data.find(g => g.group.id == groupId);
+        if(group && allowedRanks.includes(group.role.id)){
+            document.getElementById('access-wrapper').style.display='block';
+        } else {
+            document.getElementById('denied-wrapper').style.display='block';
+        }
+    } catch(err){
+        console.error(err);
+        document.getElementById('denied-wrapper').style.display='block';
+    }
+}
+checkAccess();
+</script>
 </body>
 </html>
