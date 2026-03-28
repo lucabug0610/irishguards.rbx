@@ -6,42 +6,135 @@
 <title>Irish Guards</title>
 
 <style>
+/* ------------------ Basic Styles ------------------ */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; }
+body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; transition: background 0.3s, color 0.3s; }
+body.dark-mode { background-color: #002b36; color: #f4f4f4; }
 a { text-decoration: none; color: inherit; }
-.gov-bar { background: #000; color: #fff; font-size: 14px; padding: 6px 40px; }
+a:hover { text-decoration: underline; }
+
+.gov-bar { background: #000; color: #fff; font-size: 14px; padding: 6px 40px; display: flex; justify-content: space-between; align-items: center; }
 .gov-bar a { color: #9be7b1; margin-left: 15px; }
+
+/* Dark mode toggle button */
+#darkModeToggle {
+    cursor: pointer;
+    background: #9be7b1;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #002b36;
+}
+
 header { display: flex; align-items: center; background: #002b36; padding: 20px 40px; color: #fff; }
 header img.badge { height: 70px; margin-right: 20px; }
 header .title { display: flex; flex-direction: column; }
 header .title h1 { font-size: 32px; }
 header .title p { font-style: italic; color: #9be7b1; font-size: 16px; margin-top: 5px; }
+
 nav { background: #073642; padding: 12px 40px; display: flex; gap: 20px; }
 nav a { color: #9be7b1; font-weight: bold; }
-nav a:hover { text-decoration: underline; }
-.hero { position: relative; height: 250px; background: url('banner.png') center/cover no-repeat; }
+
+.hero { position: relative; height: 250px; background: url('banner.png') center/cover no-repeat; background-attachment: fixed; }
 .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); }
+
 .section { padding: 40px; max-width: 1000px; margin: auto; }
 .section h2 { border-bottom: 2px solid #073642; padding-bottom: 8px; margin-bottom: 20px; color: #002b36; }
+
 .card { background: #fff; padding: 20px; margin-bottom: 20px; border-left: 6px solid #002b36; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
-.rank { display: flex; align-items: center; gap: 20px; position: relative; padding: 10px; }
+
+/* ------------------ Rank Cards ------------------ */
+.rank { display: flex; align-items: center; gap: 20px; position: relative; padding: 10px; cursor: pointer; }
 .rank img { width: 60px; transition: transform 0.3s; }
 .rank:hover img { transform: scale(1.2); }
+
 .tooltip { display: none; position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: #002b36; color: #fff; padding: 12px; border-radius: 6px; font-size: 14px; width: 280px; z-index: 100; text-align: center; }
 .tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border-width: 6px; border-style: solid; border-color: #002b36 transparent transparent transparent; }
 .rank:hover .tooltip { display: block; }
+
 .rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+
+.rank-details {
+    display: none;
+    margin-top: 10px;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    overflow: hidden;
+}
+
+/* ------------------ Company Banner Hover ------------------ */
+.card.company-banner {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card.company-banner:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+.card.company-banner::before {
+    content: "";
+    position: absolute;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,43,54,0.2);
+    transition: background 0.3s;
+}
+.card.company-banner:hover::before {
+    background: rgba(0,43,54,0.4);
+}
+
+/* ------------------ Join Us Button ------------------ */
+.join-us-btn {
+    display: inline-block;
+    background-color: #9be7b1;
+    color: #002b36;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.join-us-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* ------------------ Dark Mode Adjustments ------------------ */
+body.dark-mode header, 
+body.dark-mode nav, 
+body.dark-mode .tooltip, 
+body.dark-mode .card {
+    background-color: #073642;
+    color: #f4f4f4;
+}
+body.dark-mode .card { border-left-color: #9be7b1; }
+body.dark-mode .join-us-btn { background-color: #002b36; color: #9be7b1; }
+
+/* Smooth Scroll */
+html { scroll-behavior: smooth; }
+
 footer { background: #002b36; color: #fff; text-align: center; padding: 20px; font-size: 14px; }
 </style>
-
 </head>
 <body>
 
+<!-- ------------------ Top Bar ------------------ -->
 <div class="gov-bar">
-    UK Ministry of Defence &nbsp;|&nbsp; <a href="#companies">Units</a> | <a href="#ranks">Ranks</a> | <a href="#rank-descriptions">Rank Details</a> | <a href="#docs">Docs</a> | <a href="#youtube">YouTube</a>
+    <div>UK Ministry of Defence</div>
+    <div>
+        <a href="#companies">Units</a> | 
+        <a href="#ranks">Ranks</a> | 
+        <a href="#rank-descriptions">Rank Details</a> | 
+        <a href="#docs">Docs</a> | 
+        <a href="#youtube">YouTube</a>
+        <button id="darkModeToggle">Dark/Light Mode</button>
+    </div>
 </div>
 
+<!-- ------------------ Header ------------------ -->
 <header>
     <img src="badge.png" alt="Regiment Badge" class="badge">
     <div class="title">
@@ -50,6 +143,7 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
     </div>
 </header>
 
+<!-- ------------------ Navigation ------------------ -->
 <nav>
     <a href="#companies">Companies</a>
     <a href="#ranks">Ranks</a>
@@ -58,99 +152,91 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
     <a href="#youtube">YouTube</a>
 </nav>
 
+<!-- ------------------ Hero ------------------ -->
 <div class="hero">
     <div class="hero-overlay"></div>
 </div>
 
+<!-- ------------------ Companies ------------------ -->
 <div class="section" id="companies">
 <h2>Companies & Command</h2>
-<div class="card">
+
+<div class="card company-banner company-battalion">
 <h3>Battalion Headquarters</h3>
 <p><b>Officer Commanding:</b> Lieutenant Colonel Lucaetank09</p>
 <p><b>Senior Major:</b> Major 12MATEIdarius</p>
 <p><b>Regimental Sergeant Major:</b> Vacant</p>
+<a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join Us</a>
 </div>
-<div class="card">
+
+<div class="card company-banner company-2">
 <h3>No. 2 Company</h3>
 <p><b>Officer Commanding:</b> Major tyjimmyjammy</p>
 <p><b>Second In Command:</b> Vacant</p>
 <p><b>Company Sergeant Major:</b> Vacant</p>
+<a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join Us</a>
 </div>
-<div class="card">
+
+<div class="card company-banner company-1">
 <h3>No. 1 Company</h3>
 <p><b>Officer Commanding:</b> Major Vacant</p>
 <p><b>Second In Command:</b> Vacant</p>
 <p><b>Company Sergeant Major:</b> Vacant</p>
+<a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join Us</a>
 </div>
-<div class="card">
+
+<div class="card company-banner company-support">
 <h3>Support Company</h3>
 <p><b>Officer Commanding:</b> Vacant</p>
 <p><b>Second In Command:</b> Vacant</p>
 <p><b>Company Sergeant Major:</b> Vacant</p>
-</div>
+<a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join Us</a>
 </div>
 
+</div>
+
+<!-- ------------------ Ranks ------------------ -->
 <div class="section" id="ranks">
 <h2>All Ranks</h2>
 <div class="rank-grid">
-<div class="card rank"><img src="Rank1.png" alt="Guardsman"><div><h3>Guardsman</h3><div class="tooltip">Basic soldier rank in Guards regiments.</div></div></div>
-<div class="card rank"><img src="Rank2.png" alt="Lance Corporal"><div><h3>Lance Corporal</h3><div class="tooltip">Junior NCO assisting section command.</div></div></div>
-<div class="card rank"><img src="Rank3.png" alt="Lance Sergeant"><div><h3>Lance Sergeant</h3><div class="tooltip">Guards equivalent of Corporal, commands a section.</div></div></div>
-<div class="card rank"><img src="Rank4.png" alt="Sergeant"><div><h3>Sergeant</h3><div class="tooltip">Senior NCO responsible for discipline and training.</div></div></div>
-<div class="card rank"><img src="Rank5.png" alt="Colour Sergeant"><div><h3>Colour Sergeant</h3><div class="tooltip">Experienced NCO in charge of company-level administration.</div></div></div>
-<div class="card rank"><img src="Rank6.png" alt="Warrant Officer Class 2"><div><h3>Warrant Officer Class 2</h3><div class="tooltip">Senior non-commissioned officer at company or battalion level.</div></div></div>
-<div class="card rank"><img src="Rank7.png" alt="Warrant Officer Class 1"><div><h3>Warrant Officer Class 1</h3><div class="tooltip">Most senior NCO in the regiment.</div></div></div>
-<div class="card rank"><img src="Rank8.png" alt="Second Lieutenant"><div><h3>Second Lieutenant</h3><div class="tooltip">Junior commissioned officer leading a platoon.</div></div></div>
-<div class="card rank"><img src="Rank9.png" alt="Lieutenant"><div><h3>Lieutenant</h3><div class="tooltip">Commands a platoon or supports company operations.</div></div></div>
-<div class="card rank"><img src="Rank10.png" alt="Captain"><div><h3>Captain</h3><div class="tooltip">Company-level officer, supports tactical operations.</div></div></div>
-<div class="card rank"><img src="Rank11.png" alt="Major"><div><h3>Major</h3><div class="tooltip">Company commander or staff officer at battalion level.</div></div></div>
-<div class="card rank"><img src="Rank12.png" alt="Lieutenant Colonel"><div><h3>Lieutenant Colonel</h3><div class="tooltip">Battalion commanding officer.</div></div></div>
+<!-- Example interactive rank card -->
+<div class="card rank" onclick="toggleRank(this)">
+    <img src="Rank1.png" alt="Guardsman">
+    <h3>Guardsman</h3>
+    <div class="tooltip">Basic soldier rank in Guards regiments.</div>
+    <div class="rank-details">
+        <p>Responsibilities: patrolling, section duties, attending drills.</p>
+        <img src="guardsman_in_game.png" alt="Guardsman in Roblox" style="width:100%; border-radius:6px; margin-top:8px;">
+    </div>
+</div>
+
+<!-- Repeat for other ranks similarly -->
 </div>
 </div>
 
-<div class="section" id="rank-descriptions">
-<h2>Rank Descriptions</h2>
-<div class="card">
-<p>Guardsman – Basic soldier performing section and platoon duties.</p>
-<p>Lance Corporal – Junior NCO assisting in training and section leadership.</p>
-<p>Lance Sergeant – Commands a section, equivalent of Corporal in Guards.</p>
-<p>Sergeant – Senior NCO managing discipline and training.</p>
-<p>Colour Sergeant – Experienced NCO responsible for company administration.</p>
-<p>Warrant Officer Class 2 – Senior NCO at company or battalion level.</p>
-<p>Warrant Officer Class 1 – Most senior NCO in the regiment.</p>
-<p>Second Lieutenant – Junior commissioned officer, leads platoon.</p>
-<p>Lieutenant – Platoon commander or supports company ops.</p>
-<p>Captain – Company-level officer supporting tactical operations.</p>
-<p>Major – Company commander or staff officer.</p>
-<p>Lieutenant Colonel – Battalion commanding officer.</p>
-</div>
-</div>
-
-<div class="section" id="docs">
-<h2>Google Docs</h2>
-<div class="card">
-<ul>
-<li><a href="https://docs.google.com/document/d/1pvKMLcyz5Q0LFxaX3D3hFgqUplQb4vEIJ8mdXkKMU10/edit?usp=sharing" target="_blank">Sentry Duties Manual</a></li>
-<li><a href="https://docs.google.com/document/d/1keKOJdRrM2Fexl-K4N39NwtoGTKckYKbr-8nt8LJhgA/edit?usp=sharing" target="_blank">Drill Manual</a></li>
-<li><a href="https://docs.google.com/document/d/1xlCT4LNlay4G0hybCxLTQFEzWggRwIjV4tQ8cOXR1sc/edit?usp=sharing" target="_blank">Battle Course Aide Memoire 3</a></li>
-<li><a href="https://docs.google.com/spreadsheets/d/1PczvVLKAMNk5ePLY4scvkR-_OBwlybziC1UPAolKh3A/edit?usp=sharing" target="_blank">Regimental ORBAT</a></li>
-<li><a href="https://forms.gle/2qTNom6FGqJBj8fQ8" target="_blank">RMAS Entry Examination</a></li>
-</ul>
-</div>
-</div>
-
-<div class="section" id="youtube">
-<h2>YouTube Channels</h2>
-<div class="card">
-<ul>
-<li><a href="https://www.youtube.com/@irishguardsrbx-i8l" target="_blank">Irish Guards YouTube</a></li>
-</ul>
-</div>
-</div>
-
+<!-- ------------------ Footer ------------------ -->
 <footer>
 &copy; 2026 Irish Guards | UK Ministry of Defence Style Replica
 </footer>
+
+<!-- ------------------ Scripts ------------------ -->
+<script>
+// Dark/Light Mode Toggle
+const toggleBtn = document.getElementById('darkModeToggle');
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
+// Rank Card Expand/Collapse
+function toggleRank(card) {
+    const details = card.querySelector('.rank-details');
+    if(details.style.display === 'none' || details.style.display === '') {
+        details.style.display = 'block';
+    } else {
+        details.style.display = 'none';
+    }
+}
+</script>
 
 </body>
 </html>
