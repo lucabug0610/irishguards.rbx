@@ -53,8 +53,20 @@ header .title p { font-style: italic; color: #9be7b1; font-size: 16px; margin-to
 nav { background: #073642; padding: 12px 40px; display: flex; gap: 20px; flex-wrap: wrap; }
 nav a { color: #9be7b1; font-weight: bold; }
 
-.hero { position: relative; height: 250px; background: url('banner.png') center/cover no-repeat; background-attachment: fixed; }
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); }
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* 80% of the viewport height */
+    min-height: 400px; /* ensures it’s visible on small screens */
+    background: url('banner.png') center center / cover no-repeat;
+    background-attachment: fixed; /* for parallax effect */
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); /* slightly lighter overlay for better visibility */
+}
 
 .section { padding: 40px; max-width: 1000px; margin: auto; }
 .section h2 { border-bottom: 2px solid #073642; padding-bottom: 8px; margin-bottom: 20px; color: #002b36; }
