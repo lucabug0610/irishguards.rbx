@@ -12,7 +12,7 @@ a { text-decoration: none; color: inherit; }
 .gov-bar { background: #000; color: #fff; font-size: 14px; padding: 6px 40px; }
 .gov-bar a { color: #9be7b1; margin-left: 15px; }
 header { display: flex; align-items: center; background: #002b36; padding: 20px 40px; color: #fff; }
-header img { height: 70px; margin-right: 20px; }
+header img.badge { height: 70px; margin-right: 20px; }
 header .title { display: flex; flex-direction: column; }
 header .title h1 { font-size: 32px; }
 header .title p { font-style: italic; color: #9be7b1; font-size: 16px; margin-top: 5px; }
@@ -28,8 +28,9 @@ nav a:hover { text-decoration: underline; }
 .rank { display: flex; align-items: center; gap: 20px; position: relative; padding: 10px; }
 .rank img { width: 60px; transition: transform 0.3s; }
 .rank:hover img { transform: scale(1.2); }
+.tooltip { display: none; position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: #002b36; color: #fff; padding: 12px; border-radius: 6px; font-size: 14px; width: 280px; z-index: 100; text-align: center; }
+.tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border-width: 6px; border-style: solid; border-color: #002b36 transparent transparent transparent; }
 .rank:hover .tooltip { display: block; }
-.tooltip { display: none; position: absolute; top: 80%; left: 0; background: #002b36; color: #fff; padding: 8px; border-radius: 4px; font-size: 14px; width: 300px; z-index: 10; }
 .rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
 footer { background: #002b36; color: #fff; text-align: center; padding: 20px; font-size: 14px; }
 </style>
@@ -42,7 +43,7 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 </div>
 
 <header>
-    <img src="banner.png" alt="Regiment Badge">
+    <img src="badge.png" alt="Regiment Badge" class="badge">
     <div class="title">
         <h1>Irish Guards</h1>
         <p>Quis Separabit</p>
@@ -129,11 +130,11 @@ footer { background: #002b36; color: #fff; text-align: center; padding: 20px; fo
 <h2>Google Docs</h2>
 <div class="card">
 <ul>
-<li><a href="#" target="_blank">Document 1</a></li>
-<li><a href="#" target="_blank">Document 2</a></li>
-<li><a href="#" target="_blank">Document 3</a></li>
-<li><a href="#" target="_blank">Document 4</a></li>
-<li><a href="#" target="_blank">Document 5</a></li>
+<li><a href="https://docs.google.com/document/d/1pvKMLcyz5Q0LFxaX3D3hFgqUplQb4vEIJ8mdXkKMU10/edit?usp=sharing" target="_blank">Sentry Duties Manual</a></li>
+<li><a href="https://docs.google.com/document/d/1keKOJdRrM2Fexl-K4N39NwtoGTKckYKbr-8nt8LJhgA/edit?usp=sharing" target="_blank">Drill Manual</a></li>
+<li><a href="https://docs.google.com/document/d/1xlCT4LNlay4G0hybCxLTQFEzWggRwIjV4tQ8cOXR1sc/edit?usp=sharing" target="_blank">Battle Course Aide Memoire 3</a></li>
+<li><a href="https://docs.google.com/spreadsheets/d/1PczvVLKAMNk5ePLY4scvkR-_OBwlybziC1UPAolKh3A/edit?usp=sharing" target="_blank">Regimental ORBAT</a></li>
+<li><a href="https://forms.gle/2qTNom6FGqJBj8fQ8" target="_blank">RMAS Entry Examination</a></li>
 </ul>
 </div>
 </div>
