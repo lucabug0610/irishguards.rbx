@@ -224,7 +224,13 @@ if(music.paused){
 } else {
     musicBtn.innerText = "Mute Music";
 }
-</script>
 
-</body>
-</html>
+// Start music on first scroll
+let musicStarted = false;
+window.addEventListener('scroll', () => {
+    if (!musicStarted) {
+        const music = document.getElementById('bg-music');
+        music.play().catch(e => console.log(e));
+        musicStarted = true;
+    }
+}, { once: true });
