@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Irish Guards</title>
+<title>Irish Guards HQ</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -21,13 +21,9 @@ padding:8px 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-font-size:14px;
 }
 
-.gov-bar a{
-color:#7fffd4;
-margin-left:10px;
-}
+.gov-bar a{color:#7fffd4;margin-left:10px;text-decoration:none;}
 
 /* HEADER */
 header{
@@ -39,9 +35,7 @@ border-bottom:1px solid #1f4a57;
 }
 
 header img{height:60px;margin-right:15px;}
-
-header h1{font-size:28px;}
-header p{color:#7fffd4;font-size:14px;}
+header p{color:#7fffd4;}
 
 /* NAV */
 nav{
@@ -55,10 +49,7 @@ z-index:1000;
 border-bottom:1px solid #1f4a57;
 }
 
-nav a{
-color:#7fffd4;
-font-weight:bold;
-}
+nav a{color:#7fffd4;font-weight:bold;text-decoration:none;}
 
 /* HERO */
 .hero{
@@ -78,15 +69,8 @@ align-items:center;
 text-align:center;
 }
 
-.hero h1{
-font-size:50px;
-letter-spacing:2px;
-}
-
-.hero p{
-margin-top:10px;
-color:#7fffd4;
-}
+.hero h1{font-size:50px;}
+.hero p{color:#7fffd4;margin-top:10px;}
 
 .hero-btn{
 margin-top:20px;
@@ -95,9 +79,10 @@ background:#7fffd4;
 color:#002b36;
 font-weight:bold;
 border-radius:5px;
+text-decoration:none;
 }
 
-/* SECTION */
+/* SECTIONS */
 .section{
 padding:40px;
 max-width:1200px;
@@ -129,8 +114,8 @@ box-shadow:0 10px 20px rgba(0,0,0,0.5);
 .company{
 background-size:cover;
 background-position:center;
-color:white;
 position:relative;
+color:white;
 }
 
 .company::before{
@@ -147,22 +132,15 @@ top:0;left:0;
 .company-2{background-image:url('company-2.png');}
 .company-support{background-image:url('company-support.png');}
 
-/* RANK GRID */
+/* RANKS */
 .rank-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
 gap:20px;
 }
 
-.rank{
-text-align:center;
-cursor:pointer;
-}
-
-.rank img{
-width:60px;
-margin-bottom:10px;
-}
+.rank{text-align:center;cursor:pointer;}
+.rank img{width:60px;margin-bottom:10px;}
 
 .rank-desc{
 max-height:0;
@@ -172,7 +150,7 @@ font-size:13px;
 }
 
 .rank.active .rank-desc{
-max-height:100px;
+max-height:120px;
 margin-top:10px;
 }
 
@@ -187,6 +165,9 @@ font-weight:bold;
 cursor:pointer;
 }
 
+/* LINKS */
+.panel a{color:#7fffd4;text-decoration:none;}
+
 /* FOOTER */
 footer{
 background:#000;
@@ -195,7 +176,7 @@ padding:20px;
 margin-top:40px;
 }
 
-/* SCROLL ANIMATION */
+/* SCROLL ANIM */
 .fade{
 opacity:0;
 transform:translateY(30px);
@@ -210,17 +191,19 @@ transform:translateY(0);
 
 <body>
 
+<!-- TOP -->
 <div class="gov-bar">
 <div>UK MOD | Irish Guards HQ</div>
 <div>
 <a href="#companies">Units</a>
 <a href="#ranks">Ranks</a>
 <a href="#docs">Docs</a>
-<a href="#youtube">YouTube</a>
+<a href="#youtube">Media</a>
 <a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank">Join</a>
 </div>
 </div>
 
+<!-- HEADER -->
 <header>
 <img src="badge.png">
 <div>
@@ -229,18 +212,19 @@ transform:translateY(0);
 </div>
 </header>
 
+<!-- NAV -->
 <nav>
 <a href="#companies">Companies</a>
 <a href="#ranks">Ranks</a>
 <a href="#docs">Docs</a>
-<a href="#youtube">Media</a>
+<a href="#youtube">YouTube</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
 <div class="hero-overlay">
 <h1>IRISH GUARDS</h1>
-<p>Operational Command Interface</p>
+<p>Regimental Command Interface</p>
 <a href="#companies" class="hero-btn">Enter HQ</a>
 </div>
 </div>
@@ -251,17 +235,23 @@ transform:translateY(0);
 
 <div class="panel company company-1 fade">
 <h3>No.1 Company</h3>
-<p>Officer Commanding: Vacant</p>
+<p>OC: Vacant</p>
+<p>2IC: Vacant</p>
+<p>CSM: Vacant</p>
 </div>
 
 <div class="panel company company-2 fade">
 <h3>No.2 Company</h3>
-<p>Officer Commanding: Major tyjimmyjammy</p>
+<p>OC: Major tyjimmyjammy</p>
+<p>2IC: Vacant</p>
+<p>CSM: Vacant</p>
 </div>
 
 <div class="panel company company-support fade">
 <h3>Support Company</h3>
-<p>Officer Commanding: Vacant</p>
+<p>OC: Vacant</p>
+<p>2IC: Vacant</p>
+<p>CSM: Vacant</p>
 </div>
 
 </div>
@@ -279,20 +269,20 @@ transform:translateY(0);
 
 <div class="rank-grid">
 
-<div class="panel rank fade" data-type="enlisted">
-<img src="Rank1.png"><h3>Guardsman</h3>
-<p class="rank-desc">Entry-level soldier.</p>
-</div>
+<div class="panel rank fade" data-type="enlisted"><img src="Rank1.png"><h3>Guardsman</h3><p class="rank-desc">Fully trained soldier.</p></div>
 
-<div class="panel rank fade" data-type="nco">
-<img src="Rank2.png"><h3>Lance Corporal</h3>
-<p class="rank-desc">Junior leadership.</p>
-</div>
+<div class="panel rank fade" data-type="nco"><img src="Rank2.png"><h3>Lance Corporal</h3></div>
+<div class="panel rank fade" data-type="nco"><img src="Rank3.png"><h3>Lance Sergeant</h3></div>
+<div class="panel rank fade" data-type="nco"><img src="Rank4.png"><h3>Sergeant</h3></div>
+<div class="panel rank fade" data-type="nco"><img src="Rank5.png"><h3>Colour Sergeant</h3></div>
+<div class="panel rank fade" data-type="nco"><img src="Rank6.png"><h3>WO2</h3></div>
+<div class="panel rank fade" data-type="nco"><img src="Rank7.png"><h3>WO1</h3></div>
 
-<div class="panel rank fade" data-type="officer">
-<img src="Rank10.png"><h3>Captain</h3>
-<p class="rank-desc">Command-level officer.</p>
-</div>
+<div class="panel rank fade" data-type="officer"><img src="Rank8.png"><h3>Second Lieutenant</h3></div>
+<div class="panel rank fade" data-type="officer"><img src="Rank9.png"><h3>Lieutenant</h3></div>
+<div class="panel rank fade" data-type="officer"><img src="Rank10.png"><h3>Captain</h3></div>
+<div class="panel rank fade" data-type="officer"><img src="Rank11.png"><h3>Major</h3></div>
+<div class="panel rank fade" data-type="officer"><img src="Rank12.png"><h3>Lieutenant Colonel</h3></div>
 
 </div>
 </div>
@@ -303,8 +293,11 @@ transform:translateY(0);
 
 <div class="panel fade">
 <ul>
-<li><a href="#">Sentry Duties</a></li>
-<li><a href="#">Drill Manual</a></li>
+<li><a href="https://docs.google.com/document/d/1pvKMLcyz5Q0LFxaX3D3hFgqUplQb4vEIJ8mdXkKMU10/edit" target="_blank">Sentry Duties Manual</a></li>
+<li><a href="https://docs.google.com/document/d/1keKOJdRrM2Fexl-K4N39NwtoGTKckYKbr-8nt8LJhgA/edit" target="_blank">Drill Manual</a></li>
+<li><a href="https://docs.google.com/document/d/1xlCT4LNlay4G0hybCxLTQFEzWggRwIjV4tQ8cOXR1sc/edit" target="_blank">Battle Course Aide Memoire 3</a></li>
+<li><a href="https://docs.google.com/spreadsheets/d/1PczvVLKAMNk5ePLY4scvkR-_OBwlybziC1UPAolKh3A/edit" target="_blank">Regimental ORBAT</a></li>
+<li><a href="https://forms.gle/2qTNom6FGqJBj8fQ8" target="_blank">RMAS Entry Exam</a></li>
 </ul>
 </div>
 
@@ -315,16 +308,16 @@ transform:translateY(0);
 <h2>Media Feed</h2>
 
 <div class="panel fade">
-<a href="https://www.youtube.com/@irishguardsrbx-i8l" target="_blank">View Channel</a>
+<a href="https://www.youtube.com/@irishguardsrbx-i8l" target="_blank">Irish Guards YouTube Channel</a>
 </div>
 
 </div>
 
-<footer>© Irish Guards</footer>
+<footer>© 2026 Irish Guards HQ</footer>
 
 <script>
 // Scroll animation
-const obs = new IntersectionObserver(entries=>{
+const obs=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
 if(e.isIntersecting){e.target.classList.add('show');}
 });
