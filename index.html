@@ -42,6 +42,8 @@ footer{background:#000;text-align:center;padding:20px;margin-top:40px;}
 .fade.show{opacity:1;transform:translateY(0);}
 .uniform-order{padding:30px;background:#073642;margin-bottom:30px;text-align:center;border-radius:8px;}
 .uniform-order h3{margin-bottom:10px;}
+/* Music button style */
+#music-btn{position:fixed;bottom:20px;right:20px;padding:10px 20px;background:#7fffd4;color:#002b36;font-weight:bold;border-radius:5px;border:none;cursor:pointer;z-index:1000;}
 </style>
 </head>
 
@@ -54,6 +56,7 @@ footer{background:#000;text-align:center;padding:20px;margin-top:40px;}
 <a href="#ranks">Ranks</a>
 <a href="#docs">Docs</a>
 <a href="#youtube">Media</a>
+<a href="#about-us">About Us</a>
 <a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank">Join</a>
 </div>
 </div>
@@ -72,6 +75,7 @@ footer{background:#000;text-align:center;padding:20px;margin-top:40px;}
 <a href="#docs">Docs</a>
 <a href="#youtube">YouTube</a>
 <a href="#uniform">Uniform Order</a>
+<a href="#about-us">About Us</a>
 </nav>
 
 <div class="hero">
@@ -113,9 +117,8 @@ footer{background:#000;text-align:center;padding:20px;margin-top:40px;}
 <button onclick="filterRanks('officer')">Officer</button>
 </div>
 <div class="rank-grid">
-<!-- Ranks Guardsman → Lieutenant Colonel -->
 <div class="panel rank fade" data-type="enlisted"><img src="Rank1.png" alt="Guardsman"><h3>Guardsman</h3><p class="rank-desc">Basic trained soldier performing section and platoon duties.</p></div>
-<div class="panel rank fade" data-type="nco"><img src="Rank2.png" alt="Lance Corporal"><h3>Lance Corporal</h3><p class="rank-desc">Junior non-commissioned officer assisting in training and section leadership.</p></div>
+<div class="panel rank fade" data-type="nco"><img src="Rank2.png" alt="Lance Corporal"><h3>Lance Corporal</h3><p class="rank-desc">Junior NCO assisting in training and section leadership.</p></div>
 <div class="panel rank fade" data-type="nco"><img src="Rank3.png" alt="Lance Sergeant"><h3>Lance Sergeant</h3><p class="rank-desc">Commands a section; Guards equivalent of Corporal.</p></div>
 <div class="panel rank fade" data-type="nco"><img src="Rank4.png" alt="Sergeant"><h3>Sergeant</h3><p class="rank-desc">Senior NCO responsible for discipline and training.</p></div>
 <div class="panel rank fade" data-type="nco"><img src="Rank5.png" alt="Colour Sergeant"><h3>Colour Sergeant</h3><p class="rank-desc">Experienced NCO in charge of company administration.</p></div>
@@ -157,7 +160,21 @@ footer{background:#000;text-align:center;padding:20px;margin-top:40px;}
 </div>
 </div>
 
+<!-- About Us Section -->
+<div class="section" id="about-us">
+<h2>About Us</h2>
+<div class="panel fade">
+<p>The Irish Guards are one of the Foot Guards regiments of the British Army, founded in 1900 by Queen Victoria in recognition of the Irish soldiers' service in the Second Boer War. Their motto, <em>Quis Separabit</em> ("Who Shall Separate Us"), reflects the regiment’s unity and loyalty.</p>
+<p>The regiment performs both ceremonial duties, including the Changing of the Guard at Buckingham Palace, and operational roles, having served in major conflicts including World Wars, Northern Ireland, Iraq, and Afghanistan. The Irish Guards are known for their distinctive dark blue tunics, red plume in the headdress, and exceptional precision in drill.</p>
+<p>Members of the regiment take pride in their heritage, discipline, and esprit de corps, upholding traditions while adapting to modern military challenges. Joining the Irish Guards is both an honor and a commitment to serve the Crown and country with distinction.</p>
+</div>
+</div>
+
 <footer>© 2026 Irish Guards</footer>
+
+<!-- Music Player -->
+<button id="music-btn">Mute Music</button>
+<audio id="bg-music" src="song.mp3" loop autoplay></audio>
 
 <script>
 // Scroll animation
@@ -180,13 +197,33 @@ const now=new Date();
 const month=now.getMonth()+1;
 const day=now.getDate();
 let season="Summer";
-
 if((month>10)||(month==10 && day>=25)||(month<3)||(month==3 && day<29)){
     season="Winter";
 }
 document.getElementById('uniform-text').innerText=season;
 }
 updateUniform();
+
+// Music control
+const music = document.getElementById('bg-music');
+const musicBtn = document.getElementById('music-btn');
+
+musicBtn.addEventListener('click', () => {
+    if(music.paused){
+        music.play();
+        musicBtn.innerText = "Mute Music";
+    } else {
+        music.pause();
+        musicBtn.innerText = "Play Music";
+    }
+});
+
+// Set initial button text
+if(music.paused){
+    musicBtn.innerText = "Play Music";
+} else {
+    musicBtn.innerText = "Mute Music";
+}
 </script>
 
 </body>
