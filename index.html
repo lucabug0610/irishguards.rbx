@@ -4,138 +4,345 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Irish Guards</title>
+
 <style>
-/* Basic styles + dark mode + hero + cards + ranks + company banners (same as before) */
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial,sans-serif;background:#f4f4f4;color:#333;transition:background 0.3s,color 0.3s;}
-body.dark-mode{background:#002b36;color:#f4f4f4;}
-a{text-decoration:none;color:inherit;}
-a:hover{text-decoration:underline;}
-.gov-bar{background:#000;color:#fff;font-size:14px;padding:6px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
-.gov-bar a{color:#9be7b1;margin-left:15px;}
-#darkModeToggle{cursor:pointer;background:#9be7b1;border:none;padding:5px 12px;border-radius:4px;font-weight:bold;color:#002b36;}
-.join-us-btn{display:inline-block;background-color:#002b36;color:#9be7b1;font-weight:bold;padding:8px 15px;border-radius:6px;text-align:center;text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;}
-body.dark-mode .join-us-btn{background-color:#9be7b1;color:#002b36;}
-.join-us-btn:hover{transform:translateY(-3px);box-shadow:0 6px 15px rgba(0,0,0,0.3);}
-header{display:flex;align-items:center;background:#002b36;padding:20px 40px;color:#fff;}
-header img.badge{height:70px;margin-right:20px;}
-header .title{display:flex;flex-direction:column;}
-header .title h1{font-size:32px;}
-header .title p{font-style:italic;color:#9be7b1;font-size:16px;margin-top:5px;}
-nav{background:#073642;padding:12px 40px;display:flex;gap:20px;flex-wrap:wrap;}
-nav a{color:#9be7b1;font-weight:bold;}
-.hero{position:relative;width:100%;height:80vh;min-height:400px;background:url('banner.png') center center/cover no-repeat;background-attachment:fixed;}
-.hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);}
-.section{padding:40px;max-width:1000px;margin:auto;}
-.section h2{border-bottom:2px solid #073642;padding-bottom:8px;margin-bottom:20px;color:#002b36;}
-.card{background:#fff;padding:20px;margin-bottom:20px;border-left:6px solid #002b36;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,0.1);transition:transform 0.3s,box-shadow 0.3s;}
-.card:hover{transform:translateY(-5px);box-shadow:0 8px 15px rgba(0,0,0,0.2);}
-.card.company-banner{position:relative;overflow:hidden;cursor:pointer;transition: transform 0.3s, box-shadow 0.3s;}
-.card.company-banner:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 10px 20px rgba(0,0,0,0.25);}
-.card.company-banner::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,43,54,0.2);transition:background 0.3s;}
-.card.company-banner:hover::before{background:rgba(0,43,54,0.4);}
-.rank{display:flex;flex-direction:column;align-items:flex-start;gap:8px;position:relative;padding:10px;cursor:pointer;}
-.rank img{width:60px;transition: transform 0.3s;}
-.rank:hover img{transform:scale(1.2);}
-.tooltip{display:none;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:#002b36;color:#fff;padding:12px;border-radius:6px;font-size:14px;width:280px;z-index:100;text-align:center;}
-.tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border-width:6px;border-style:solid;border-color:#002b36 transparent transparent transparent;}
-.rank:hover .tooltip{display:block;}
-.rank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
-.filter-btns{margin-bottom:20px;}
-.filter-btns button{background-color:#9be7b1;color:#002b36;border:none;padding:8px 15px;margin-right:8px;border-radius:6px;cursor:pointer;font-weight:bold;}
-.filter-btns button:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-body.dark-mode header,body.dark-mode nav,body.dark-mode .tooltip,body.dark-mode .card{background-color:#073642;color:#f4f4f4;}
-body.dark-mode .card{border-left-color:#9be7b1;}
-body.dark-mode h2{color:#9be7b1;}
-body.dark-mode h3{color:#f4f4f4;}
-#denied-wrapper{display:none;text-align:center;padding:100px;}
-html{scroll-behavior:smooth;}
-footer{background:#002b36;color:#fff;text-align:center;padding:20px;font-size:14px;}
+
+body{
+font-family:Arial;
+background:#0b1c24;
+color:#e6f2f1;
+}
+
+/* TOP BAR */
+.gov-bar{
+background:#000;
+padding:8px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:14px;
+}
+
+.gov-bar a{
+color:#7fffd4;
+margin-left:10px;
+}
+
+/* HEADER */
+header{
+display:flex;
+align-items:center;
+padding:20px;
+background:#102a33;
+border-bottom:1px solid #1f4a57;
+}
+
+header img{height:60px;margin-right:15px;}
+
+header h1{font-size:28px;}
+header p{color:#7fffd4;font-size:14px;}
+
+/* NAV */
+nav{
+display:flex;
+gap:20px;
+padding:12px 20px;
+background:#0f242c;
+position:sticky;
+top:0;
+z-index:1000;
+border-bottom:1px solid #1f4a57;
+}
+
+nav a{
+color:#7fffd4;
+font-weight:bold;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+background:url('banner.png') center/cover fixed;
+position:relative;
+}
+
+.hero-overlay{
+position:absolute;
+width:100%;height:100%;
+background:rgba(0,0,0,0.7);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-size:50px;
+letter-spacing:2px;
+}
+
+.hero p{
+margin-top:10px;
+color:#7fffd4;
+}
+
+.hero-btn{
+margin-top:20px;
+padding:12px 30px;
+background:#7fffd4;
+color:#002b36;
+font-weight:bold;
+border-radius:5px;
+}
+
+/* SECTION */
+.section{
+padding:40px;
+max-width:1200px;
+margin:auto;
+}
+
+.section h2{
+margin-bottom:20px;
+border-left:4px solid #7fffd4;
+padding-left:10px;
+}
+
+/* PANELS */
+.panel{
+background:#102a33;
+padding:20px;
+margin-bottom:20px;
+border:1px solid #1f4a57;
+transition:0.3s;
+position:relative;
+}
+
+.panel:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* COMPANY */
+.company{
+background-size:cover;
+background-position:center;
+color:white;
+position:relative;
+}
+
+.company::before{
+content:'';
+position:absolute;
+width:100%;height:100%;
+background:rgba(0,0,0,0.6);
+top:0;left:0;
+}
+
+.company *{position:relative;}
+
+.company-1{background-image:url('company-1.png');}
+.company-2{background-image:url('company-2.png');}
+.company-support{background-image:url('company-support.png');}
+
+/* RANK GRID */
+.rank-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:20px;
+}
+
+.rank{
+text-align:center;
+cursor:pointer;
+}
+
+.rank img{
+width:60px;
+margin-bottom:10px;
+}
+
+.rank-desc{
+max-height:0;
+overflow:hidden;
+transition:0.3s;
+font-size:13px;
+}
+
+.rank.active .rank-desc{
+max-height:100px;
+margin-top:10px;
+}
+
+/* FILTER */
+.filter button{
+margin:5px;
+padding:6px 12px;
+background:#7fffd4;
+border:none;
+border-radius:4px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+background:#000;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+/* SCROLL ANIMATION */
+.fade{
+opacity:0;
+transform:translateY(30px);
+transition:0.6s;
+}
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
 </style>
 </head>
+
 <body>
 
-<!-- ACCESS DENIED -->
-<div id="denied-wrapper">
-    <img src="badge.png" alt="Regiment Badge" style="width:200px;margin-bottom:20px;">
-    <h2>You do not have access to this website</h2>
-    <a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join the Group</a>
-</div>
-
-<!-- MAIN WEBSITE -->
-<div id="access-wrapper" style="display:none;">
-
 <div class="gov-bar">
-    <div>UK Ministry of Defence</div>
-    <div>
-        <a href="#companies">Units</a> | 
-        <a href="#ranks">Ranks</a> | 
-        <a href="#rank-descriptions">Rank Details</a> | 
-        <a href="#docs">Docs</a> | 
-        <a href="#youtube">YouTube</a>
-        <button id="darkModeToggle">Dark/Light Mode</button>
-        <a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank" class="join-us-btn">Join Us</a>
-    </div>
+<div>UK MOD | Irish Guards HQ</div>
+<div>
+<a href="#companies">Units</a>
+<a href="#ranks">Ranks</a>
+<a href="#docs">Docs</a>
+<a href="#youtube">YouTube</a>
+<a href="https://www.roblox.com/communities/579115429/r-s-G-a-ds#!/about" target="_blank">Join</a>
+</div>
 </div>
 
 <header>
-    <img src="badge.png" alt="Regiment Badge" class="badge">
-    <div class="title">
-        <h1>Irish Guards</h1>
-        <p>Quis Separabit</p>
-    </div>
+<img src="badge.png">
+<div>
+<h1>Irish Guards</h1>
+<p>Quis Separabit</p>
+</div>
 </header>
 
 <nav>
-    <a href="#companies">Companies</a>
-    <a href="#ranks">Ranks</a>
-    <a href="#rank-descriptions">Rank Descriptions</a>
-    <a href="#docs">Docs</a>
-    <a href="#youtube">YouTube</a>
+<a href="#companies">Companies</a>
+<a href="#ranks">Ranks</a>
+<a href="#docs">Docs</a>
+<a href="#youtube">Media</a>
 </nav>
 
-<div class="hero"><div class="hero-overlay"></div></div>
+<!-- HERO -->
+<div class="hero">
+<div class="hero-overlay">
+<h1>IRISH GUARDS</h1>
+<p>Operational Command Interface</p>
+<a href="#companies" class="hero-btn">Enter HQ</a>
+</div>
+</div>
 
-<!-- Companies Section -->
+<!-- COMPANIES -->
 <div class="section" id="companies">
 <h2>Companies & Command</h2>
-<div class="card company-banner company-1"><h3>No. 1 Company</h3><p><b>Officer Commanding:</b> Major Vacant</p><p><b>Second In Command:</b> Vacant</p><p><b>Company Sergeant Major:</b> Vacant</p></div>
-<div class="card company-banner company-2"><h3>No. 2 Company</h3><p><b>Officer Commanding:</b> Major tyjimmyjammy</p><p><b>Second In Command:</b> Vacant</p><p><b>Company Sergeant Major:</b> Vacant</p></div>
-<div class="card company-banner company-support"><h3>Support Company</h3><p><b>Officer Commanding:</b> Vacant</p><p><b>Second In Command:</b> Vacant</p><p><b>Company Sergeant Major:</b> Vacant</p></div>
+
+<div class="panel company company-1 fade">
+<h3>No.1 Company</h3>
+<p>Officer Commanding: Vacant</p>
 </div>
 
-<!-- Ranks, Descriptions, Docs, YouTube same as before -->
-<!-- ... copy the previous content ... -->
-
-<footer>
-&copy; 2026 Irish Guards | UK Ministry of Defence Style Replica
-</footer>
+<div class="panel company company-2 fade">
+<h3>No.2 Company</h3>
+<p>Officer Commanding: Major tyjimmyjammy</p>
 </div>
+
+<div class="panel company company-support fade">
+<h3>Support Company</h3>
+<p>Officer Commanding: Vacant</p>
+</div>
+
+</div>
+
+<!-- RANKS -->
+<div class="section" id="ranks">
+<h2>Rank Structure</h2>
+
+<div class="filter">
+<button onclick="filterRanks('all')">All</button>
+<button onclick="filterRanks('enlisted')">Enlisted</button>
+<button onclick="filterRanks('nco')">NCO</button>
+<button onclick="filterRanks('officer')">Officer</button>
+</div>
+
+<div class="rank-grid">
+
+<div class="panel rank fade" data-type="enlisted">
+<img src="Rank1.png"><h3>Guardsman</h3>
+<p class="rank-desc">Entry-level soldier.</p>
+</div>
+
+<div class="panel rank fade" data-type="nco">
+<img src="Rank2.png"><h3>Lance Corporal</h3>
+<p class="rank-desc">Junior leadership.</p>
+</div>
+
+<div class="panel rank fade" data-type="officer">
+<img src="Rank10.png"><h3>Captain</h3>
+<p class="rank-desc">Command-level officer.</p>
+</div>
+
+</div>
+</div>
+
+<!-- DOCS -->
+<div class="section" id="docs">
+<h2>Operational Documents</h2>
+
+<div class="panel fade">
+<ul>
+<li><a href="#">Sentry Duties</a></li>
+<li><a href="#">Drill Manual</a></li>
+</ul>
+</div>
+
+</div>
+
+<!-- YOUTUBE -->
+<div class="section" id="youtube">
+<h2>Media Feed</h2>
+
+<div class="panel fade">
+<a href="https://www.youtube.com/@irishguardsrbx-i8l" target="_blank">View Channel</a>
+</div>
+
+</div>
+
+<footer>© Irish Guards</footer>
 
 <script>
-// DARK MODE
-document.getElementById('darkModeToggle').addEventListener('click',()=>document.body.classList.toggle('dark-mode'));
+// Scroll animation
+const obs = new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add('show');}
+});
+});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 
-// RANK FILTERING
+// Rank expand
+document.querySelectorAll('.rank').forEach(r=>{
+r.onclick=()=>r.classList.toggle('active');
+});
+
+// Filter
 function filterRanks(type){
-    document.querySelectorAll('.rank').forEach(rank=>{
-        rank.style.display = (type==='all' || rank.dataset.type===type) ? 'block' : 'none';
-    });
+document.querySelectorAll('.rank').forEach(r=>{
+r.style.display=(type==='all'||r.dataset.type===type)?'block':'none';
+});
 }
-
-// SIMULATED LOGIN / ACCESS
-// Roblox OpenID / group rank check cannot be done fully on client.
-// For now we simulate login and access to prevent 404.
-function simulateRobloxLogin() {
-    // Replace with real server-side check later
-    let hasAccess = confirm("Simulate Roblox rank access? Press OK = allowed, Cancel = denied.");
-    if(hasAccess){
-        document.getElementById('access-wrapper').style.display='block';
-    }else{
-        document.getElementById('denied-wrapper').style.display='block';
-    }
-}
-simulateRobloxLogin();
 </script>
+
 </body>
 </html>
